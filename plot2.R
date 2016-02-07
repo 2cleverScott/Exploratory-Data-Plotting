@@ -1,4 +1,5 @@
 #Plot 2
+### Get the Data and prep for graphing
 household_power_consumption <- read.csv("~/Documents/workspace/PlottingData/household_power_consumption.txt", sep=";")
 power <- household_power_consumption
 power$DateTime <- paste(power$Date, power$Time)
