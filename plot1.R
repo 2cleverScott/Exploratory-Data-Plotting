@@ -9,5 +9,6 @@ plotdata$Global_active_power <- as.numeric(plotdata$Global_active_power)
 #Build Histogram
 hist(plotdata$Global_active_power/1000, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
 
+###Create the PNG file
 dev.copy(png, file="plot1.png", width=480, height=480, units="px")
 dev.off()

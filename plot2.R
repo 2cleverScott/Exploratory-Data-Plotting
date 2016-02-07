@@ -11,6 +11,6 @@ plot(plotdata$DateTime, plotdata$Global_active_power/1000, type="n", xlab="", yl
 with(plotdata, lines(DateTime,Global_active_power/1000))
 title(ylab="Global Active Power (kilowatts)")
 
-
+###Create the PNG file
 dev.copy(png, file="plot2.png", width=480, height=480, units="px")
 dev.off()
