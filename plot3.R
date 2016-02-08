@@ -1,11 +1,14 @@
 #Plot3
 ### Get the Data and prep for graphing
-household_power_consumption <- read.csv("~/Documents/workspace/PlottingData/household_power_consumption.txt", sep=";")
-power <- household_power_consumption
-power$DateTime <- paste(power$Date, power$Time)
-plotdata <- subset(power, DateTime < as.POSIXct('2007-02-03'))
+household_power_consumption1 <- read.csv("~/Documents/workspace/PlottingData/household_power_consumption.txt", sep=";", stringsAsFactors = TRUE)
+power1 <- household_power_consumption1
+power1$DateTime <-  paste(power1$Date, power1$Time)
+power1$DateTime <- strptime(power1$DateTime, "%d/%m/%Y %H:%M:%S")
+#subset the Data
+plotdata <- subset(power1, DateTime < as.POSIXct('2007-02-03'))
 plotdata <- subset(plotdata, DateTime > as.POSIXct('2007-02-01'))
-plotdata$Sub_metering_1 <- as.numeric(plotdata$Sub_metering_1)
+plotdata <- subset(plotdata, Sub_metering_1 != "?")
+plotdata$Sub_metering_1 <- as.integer(plotdata$Sub_metering_1)
 plotdata$Sub_metering_2 <- as.numeric(plotdata$Sub_metering_2)
 plotdata$Sub_metering_3 <- as.numeric(plotdata$Sub_metering_3)
 
